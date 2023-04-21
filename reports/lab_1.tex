@@ -1,0 +1,76 @@
+\documentclass[a4paper, fontsize=14pt]{article}
+\usepackage{scrextend}
+\usepackage{indentfirst, fancyhdr, amsfonts, mathtools, amssymb}
+\usepackage{titlesec} %работа с рубрикацией
+\usepackage{tocloft} %настройки оглавления
+\usepackage[T2A]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{hyperref} %кликабельное оглавление
+\usepackage[left=3.7cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{tempora} %настраиваем шрифт типа TNR                                   
+\usepackage{newtxmath} %делаем шрифт формул похожим на TNR
+\usepackage{caption}
+\usepackage{pdfpages}
+\usepackage{listings}
+\lstset{
+  columns=fullflexible,
+  breaklines=true,
+}
+\linespread{1}
+\setcounter{page}{4} %в зависимости от того, какой по счёту страницей должно быть оглавление!
+
+%НАСТРОЙКИ ОГЛАВЛЕНИЯ
+\renewcommand{\cftsecaftersnum}{.} %точки после номеров разделов и подразделов в оглавлении
+\renewcommand{\cftsubsecaftersnum}{.}
+\renewcommand{\cftsecfont}{\normalfont} %разделы в оглавлении пишутся обычным (не жирным) шрифтом
+\renewcommand{\cftsecpagefont}{\normalfont} %соответствующие им страницы тоже
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} %расставляем точки между названиями разделов и их страницами
+\addto\captionsrussian{\renewcommand\contentsname{СОДЕРЖАНИЕ}} %хотим, чтобы слово "Содержание" писалось капсом
+\renewcommand{\cfttoctitlefont}{\hfil\bfseries} %слово СОДЕРЖАНИЕ по центру жирным
+\renewcommand{\cftaftertoctitle}{\hfill}
+
+%НАСТРОЙКИ РУБРИКАЦИИ
+\titleformat*{\section}{\center\bf} %названия разделов и подразделов по середине жирным шрифтом
+\titleformat*{\subsection}{\center\bf}
+\titlelabel{\thetitle.\quad} %название раздела и его номер отделены точкой
+
+%НАСТРОЙКИ БИБЛИОГРАФИИ
+\addto\captionsrussian{\renewcommand\refname{СПИСОК ЛИТЕРАТУРЫ}} %хотим, чтобы слова "Список литературы" писались капсом
+\makeatletter
+\renewcommand{\@biblabel}[1]{#1.} %хотим, чтобы в списке литературы номера источников писались в формате "No. <...>", а не "[No] <...>"
+\makeatother
+
+\begin{document}
+\begin{equation}
+  \frac{u_{i-1} - 2 u_i + u_{i+1}}{h^2} + p(x_i) \frac{u_{i+1} - u_{i-1}}{2h} + q(x_i) u_i = f(x_i)
+\end{equation}
+
+\begin{equation}
+  (2 - p(x_i) h) \cdot u_{i-1} + (2q(x_i)h^2 - 4) \cdot u_i + (2 + p(x_i) h  ) \cdot u_{i+1} = 2 h^2 f(x_i))
+\end{equation}
+% \includepdf[pages={1}]{src/front_page.pdf}
+\textbf{Цель работы:}  получить навык проведения вычислительного
+эксперимента, направленного на исследование свойств итерационных методов
+решения СЛАУ.
+\subsection*{{Ход работы}}
+   \newpage
+\section*{{Вывод}}
+Вьходе лабораторной работы был получен навык проведения вычислительного
+эксперимента, направленного на исследование свойств итерационных методов
+решения СЛАУ.
+\newpage
+\subsection*{Список литературы}
+\begin{enumerate}
+    \item Бахвалов Н.С., Жидков Н.П., Кобельков Г.М. Численные методы: Бином, 2018. – 636 с. 
+    \item Калиткин Н.Н. Численные методы, 2-е издание: БХВ-Петербург, 2014. – 592 с.
+    \item Самарский А.А., Гулин А. В. Численные методы: Учеб, пособие для вузов, — М.: Наука. Гл. ред. физ-мат. лит., 1989.— 432 с.
+\end{enumerate}
+\newpage
+\subsection*{Приложение}
+Весь С++ код выложен в github-репозитории по ссылке: 
+
+% \url{https://github.com/sultanovMF/Numerical-Methods-Lab}
+
+
+\end{document}
